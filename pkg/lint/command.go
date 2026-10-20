@@ -21,6 +21,7 @@ import (
 	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/aigateway"
 	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/dashboard"
 	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/datasciencepipelines"
+	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/feastoperator"
 	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/kserve"
 	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/kueue"
 	"github.com/opendatahub-io/odh-cli/pkg/lint/checks/components/llamastack"
@@ -113,7 +114,7 @@ func NewCommand(
 	registry.MustRegister(dscinitialization.NewDSCInitializationReadinessCheck())
 	registry.MustRegister(datasciencecluster.NewDataScienceClusterReadinessCheck())
 
-	// Components (22)
+	// Components (23)
 	registry.MustRegister(aigateway.NewMaaSFieldMigrationCheck())
 	registry.MustRegister(raycomponent.NewCodeFlareRemovalCheck())
 	registry.MustRegister(dashboard.NewAcceleratorProfileMigrationCheck())
@@ -124,6 +125,7 @@ func NewCommand(
 	registry.MustRegister(dashboard.NewRolloutStrategyCheck())
 	registry.MustRegister(dashboard.NewConfigCompatibilityCheck())
 	registry.MustRegister(datasciencepipelines.NewRenamingCheck())
+	registry.MustRegister(feastoperator.NewRenamingCheck())
 	registry.MustRegister(kserve.NewServerlessRemovalCheck())
 	registry.MustRegister(kserve.NewWVARemovalCheck())
 	registry.MustRegister(kserve.NewKuadrantReadinessCheck())
